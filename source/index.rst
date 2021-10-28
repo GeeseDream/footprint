@@ -1,4 +1,5 @@
-
+AQ记事本
+----------------
 
 .. toctree::
    :hidden:
@@ -12,6 +13,13 @@
    java/exception
    java/io
    java/thread
+
+.. toctree::
+   :hidden:
+   :titlesonly:
+   :caption: KAFKA
+
+   kafka/isr
 
 .. toctree::
    :hidden:
