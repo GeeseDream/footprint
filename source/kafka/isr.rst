@@ -15,23 +15,23 @@ Kafka使用一种叫做ISR（in-sync Replica）的技术来保证分区副本的
 .. image:: isr.png
     :alt: ISR示意图
 
-它是一种分区副本的同步机制，分区副本应该拥有和leader相同的数据。
-参与同步复制的分区数量不一定等于等于分区副本数。
+它是一种分区副本的同步机制，follower应该拥有和leader相同的数据。
+参与同步复制的follower数量不一定等于等于分区副本数。
 
-Kafka判断follow是否同步是通过``replica.lag.time.max.ms``的值，它默认为10秒。
-如果参与同步复制的副本落后leader的数据大于10秒将被踢出同步复制，直到它的数据追上leader方可重新加入同步复制。
+Kafka判断follower是否同步是通过 ``replica.lag.time.max.ms`` 的值，它默认为10秒。
+如果参与同步复制的副本落后leader的数据大于10秒将被踢出同步复制，直到follower它的数据追上leader方可重新加入同步复制。
 
-follow周期性的向leader发起数据拉取请求，默认周期是500毫秒。如果一个follow故障超过10同样会被禁止参与同步复制。
+follower周期性的向leader发起数据拉取请求，默认周期是500毫秒。如果一个follower故障超过10同样会被禁止参与同步复制。
 
 follow都挂了只有leader数据会有丢失的风险吗
 -------------------------------------------
 
-不会，极端情况下可能出现所有参与同步复制的follow都宕机。
-可以设定``min.insync.replicas``指定至少同步成功的follow数量。
-如果运行中的follow数量不能满足要求，生产者将会收到一个异常。
-如果参与同步复制的follow大于1就可以避免这种数据丢失的风险。
-所以，我们可以创建replication factor为3的``min.insync.replicas``设置为2，生产者acks设置为3
-这样当follow数量小于2，Kafka将拒绝工作produce将收到一个异常。
+不会，极端情况下可能出现所有参与同步复制的follower都宕机。
+可以设定 ``min.insync.replicas`` 指定至少同步成功的follower数量。
+如果运行中的follower数量不能满足要求，生产者将会收到一个异常。
+如果参与同步复制的follower大于1就可以避免这种数据丢失的风险。
+所以，我们可以创建replication factor为3的 ``min.insync.replicas`` 设置为2，生产者acks设置为3
+这样当follower数量小于2，Kafka将拒绝工作produce将收到一个异常。
 
 
 
