@@ -1,9 +1,11 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://repo.huaweicloud.com/repository/pypi/simple"
 verify_ssl = true
 name = "pypi"
 
 [packages]
+sphinx = "*"
+sphinx-rtd-theme = "*"
 
 [dev-packages]
 
