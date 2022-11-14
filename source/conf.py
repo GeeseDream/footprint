@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'AQ记事本'
-copyright = '2021, 银河系统旅行者'
+project = '我的足迹'
+copyright = '2022, 银河系统旅行者'
 author = '银河系统旅行者'
 
 # The full version, including alpha/beta/rc tags
@@ -54,7 +54,7 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
