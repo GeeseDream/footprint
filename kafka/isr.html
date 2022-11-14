@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>高可用机制 &#8212; 我的足迹 0.0.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="为Docker设置socks5代理" href="../docker/SettingProxy.html" />
+    <link rel="prev" title="Java 线程" href="../java/thread.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>高可用机制<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="kafka">
+<h2>Kafka如何实现高可用<a class="headerlink" href="#kafka" title="此标题的永久链接">¶</a></h2>
+<p>Kafka通过为Topic每个Partition设置副本实现高可用，当一个节点宕机以后其它副本继续提供服务。
+并且Partition的副本的数量可以调整，一般在创建topic的时候指定副本数量。</p>
+</section>
+<section id="kafkapartition">
+<h2>Kafka如何保证Partition副本的一致性<a class="headerlink" href="#kafkapartition" title="此标题的永久链接">¶</a></h2>
+<p>Kafka使用一种叫做ISR（in-sync Replica）的技术来保证分区副本的一致性。</p>
+<img alt="ISR示意图" src="../_images/isr.png" />
+<p>它是一种分区副本的同步机制，follower应该拥有和leader相同的数据。
+参与同步复制的follower数量不一定等于等于分区副本数。</p>
+<p>Kafka判断follower是否同步是通过 <code class="docutils literal notranslate"><span class="pre">replica.lag.time.max.ms</span></code> 的值，它默认为10秒。
+如果参与同步复制的副本落后leader的数据大于10秒将被踢出同步复制，直到follower它的数据追上leader方可重新加入同步复制。</p>
+<p>follower周期性的向leader发起数据拉取请求，默认周期是500毫秒。如果一个follower故障超过10同样会被禁止参与同步复制。</p>
+</section>
+<section id="followleader">
+<h2>follow都挂了只有leader数据会有丢失的风险吗<a class="headerlink" href="#followleader" title="此标题的永久链接">¶</a></h2>
+<p>不会，极端情况下可能出现所有参与同步复制的follower都宕机。
+可以设定 <code class="docutils literal notranslate"><span class="pre">min.insync.replicas</span></code> 指定至少同步成功的follower数量。
+如果运行中的follower数量不能满足要求，生产者将会收到一个异常。
+如果参与同步复制的follower大于1就可以避免这种数据丢失的风险。
+所以，我们可以创建replication factor为3的 <code class="docutils literal notranslate"><span class="pre">min.insync.replicas</span></code> 设置为2，生产者acks设置为3
+这样当follower数量小于2，Kafka将拒绝工作produce将收到一个异常。</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">我的足迹</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../java/datatype.html">Java 数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java/AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java/NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java/extends.html">类的继承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java/exception.html">Java 异常处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java/io.html">Java的I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../java/thread.html">Java 线程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">KAFKA</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">高可用机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCKER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../java/thread.html" title="上一章">Java 线程</a></li>
+      <li>Next: <a href="../docker/SettingProxy.html" title="下一章">为Docker设置socks5代理</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, 银河系统旅行者.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/kafka/isr.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

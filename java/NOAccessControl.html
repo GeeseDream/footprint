@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>非访问修饰符 &#8212; 我的足迹 0.0.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="类的继承" href="extends.html" />
+    <link rel="prev" title="Java 访问修饰符" href="AccessControl.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>非访问修饰符<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="static">
+<h2>static<a class="headerlink" href="#static" title="此标题的永久链接">¶</a></h2>
+<p>static修饰的变量称为静态变量，所有当前类的实例共享静态变量，局部变量不能被声明为静态变量。static修饰的方法称为静态方法，静态方法不能使用类的非静态变量。静态方法从参数列表得到数据。</p>
+</section>
+<section id="final">
+<h2>final<a class="headerlink" href="#final" title="此标题的永久链接">¶</a></h2>
+<p>final修饰的变量赋值后不能被重新赋值，被修饰的实例变量必须显式指定初始值。final修饰符通常和static修饰符一起使用来创建类常量。父类中的final方法可以被子类继承，但是不能被子类重写，声明final方法的主要目的是防止该方法被重写。
+被final修饰的类不能被继承，没有类能够继承final类的任何特性。</p>
+</section>
+<section id="abstract">
+<h2>abstract<a class="headerlink" href="#abstract" title="此标题的永久链接">¶</a></h2>
+<p>abstract修饰的类称为抽象类，抽象类不能实例化。
+一个类不能同时被abstract和final修饰。
+如果一个类包含抽象方法那么该类一定要声明为抽象类，否则将出现编译错误。
+抽象类可以包含抽象方法和非抽象方法。
+抽象类可以不包含抽象方法。抽象方法的声明以分号结尾。</p>
+<p>abstract修饰的方法称为抽象方法，抽象方法是一种没有任何实现的方法，该方法的的具体实现由子类提供。抽象方法不能被声明成final 和static。
+任何继承抽象类的子类必须实现父类的所有抽象方法，除非该子类也是抽象类。</p>
+</section>
+<section id="synchronized">
+<h2>synchronized<a class="headerlink" href="#synchronized" title="此标题的永久链接">¶</a></h2>
+<p>synchronized可以修饰方法或者以同步块的形式来进行使用，它主要确保多个线程在同一个时刻，只能有一个线程处于方法或者同步块中，它保证了线程对变量访问的可见性和排他性。</p>
+<p>同步方法的实现是方法修饰符上的ACC_SYNCHRONIZED指令来完成的，而同步块的实现使用了monitorenter和monitorexit指令。无论采用哪种方式，其本质是对一个对象的监视器（monitor）进行获取，而这个获取过程是排他的，也就是同一时刻只能有一个线程获取到由synchronized所保护对象的监视器。
+任意一个对象都拥有自己的监视器，当这个对象由同步块或者这个对象的同步方法调用时，执行方法的线程必须先获取到该对象的监视器才能进入同步块或者同步方法，而没有获取到监视器（执行该方法）的线程将会被阻塞在同步块和同步方法的入口处，进入BLOCKED状态。</p>
+<img alt="../_images/monitorflow.png" src="../_images/monitorflow.png" />
+</section>
+<section id="transient">
+<h2>transient<a class="headerlink" href="#transient" title="此标题的永久链接">¶</a></h2>
+<p>序列化的对象包含被 transient 修饰的实例变量时，java虚拟机(JVM)跳过该特定的变量。该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型。</p>
+</section>
+<section id="volatile">
+<h2>volatile<a class="headerlink" href="#volatile" title="此标题的永久链接">¶</a></h2>
+<p>关键字volatile可以用来修饰字段（成员变量），程序任何对该变量的访问均需要从共享内存中获取，而对它的改变必须同步刷新回共享内存，它能保证所有线程对变量访问的可见性。一个volatile对象引用可能是null。</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">我的足迹</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">非访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Java 异常处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">KAFKA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCKER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="AccessControl.html" title="上一章">Java 访问修饰符</a></li>
+      <li>Next: <a href="extends.html" title="下一章">类的继承</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, 银河系统旅行者.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/java/NOAccessControl.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

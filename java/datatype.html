@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Java 数据类型 &#8212; 我的足迹 0.0.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Java 访问修饰符" href="AccessControl.html" />
+    <link rel="prev" title="AQ记事本" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="java">
+<h1>Java 数据类型<a class="headerlink" href="#java" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>基本数据类型<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<dl class="simple">
+<dt>两大数据类型</dt><dd><p>内置数据类型
+引用数据类型</p>
+</dd>
+</dl>
+<p>八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<ol class="arabic simple">
+<li><p>byte数据类型是8位、有符号的，以二进制补码表示的整数；最小值是
+-128（-2^7）；最大值是 127（2^7-1）；默认值是 0；byte
+类型用在大型数组中节约空间，主要代替整数，因为 byte
+变量占用的空间只有 int 类型的四分之一；</p></li>
+<li><p>short数据类型是 16 位、有符号的以二进制补码表示的整数,最小值是
+-32768（-2^15）；最大值是 32767（2^15 - 1）；Short 数据类型也可以像
+byte
+那样节省空间。一个short变量是int型变量所占空间的二分之一；默认值是
+0；</p></li>
+<li><p>int数据类型是32位、有符号的以二进制补码表示的整数；最小值是
+-2,147,483,648（-2^31）；最大值是 2,147,483,647（2^31 -
+1）；一般地整型变量默认为 int 类型；默认值是 0 ；</p></li>
+<li><p>long数据类型是 64 位、有符号的以二进制补码表示的整数；最小值是
+-9,223,372,036,854,775,808（-2^63）；最大值是
+9,223,372,036,854,775,807（2^63
+-1）；这种类型主要使用在需要比较大整数的系统上；默认值是 0L；</p></li>
+<li><p>float数据类型是单精度、32位、符合IEEE 754标准的浮点数；float
+在储存大型浮点数组的时候可节省内存空间；默认值是
+0.0f；浮点数不能用来表示精确的值，如货币；</p></li>
+<li><p>double数据类型是双精度、64 位、符合 IEEE 754 标准的浮点数；
+浮点数的默认类型为 double 类型；
+double类型同样不能表示精确的值，如货币； 默认值是 0.0d；</p></li>
+<li><p>boolean数据类型表示一位的信息；只有两个取值：true 和
+false；这种类型只作为一种标志来记录 true/false 情况；默认值是 false；</p></li>
+<li><p>char类型是一个单一的 16 位 Unicode 字符；最小值是u0000（十进制等效值为 0）；最大值是 uffff（即为 65535）；char 数据类型可以储存任何字符；</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2>引用类型<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如Employee、Puppy等。变量一旦声明后，类型就不能被改变了。对象、数组都是引用数据类型。所有引用类型的默认值都是null。一个引用变量可以用来引用任何与之兼容的类型。</p>
+</section>
+<section id="id3">
+<h2>数据类型转换<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>数据类型转换必须满足如下规则</p>
+<ol class="arabic simple">
+<li><p>不能对boolean类型进行类型转换。</p></li>
+<li><p>不能把对象类型转换成不相关类的对象。</p></li>
+<li><p>在把容量大的类型转换为容量小的类型时必须使用强制类型转换。</p></li>
+<li><p>转换过程中可能导致溢出或损失精度。</p></li>
+<li><p>浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入。</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2>强制类型转换<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>条件是转换的数据类型必须是兼容的。</p></li>
+<li><p>格式：(type)value type是要强制类型转换后的数据类型。</p></li>
+</ol>
+</section>
+<section id="id5">
+<h2>隐含强制类型转换<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>整数的默认类型是 int。</p></li>
+<li><p>小数默认是 double 类型浮点型，在定义 float 类型时必须在数字后面跟上F或者f。</p></li>
+</ol>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">我的足迹</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Java 数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Java 异常处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">KAFKA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCKER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="上一章">AQ记事本</a></li>
+      <li>Next: <a href="AccessControl.html" title="下一章">Java 访问修饰符</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, 银河系统旅行者.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/java/datatype.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

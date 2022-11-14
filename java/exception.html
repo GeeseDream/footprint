@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Java 异常处理 &#8212; 我的足迹 0.0.1 文档</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Java的I/O" href="io.html" />
+    <link rel="prev" title="类的继承" href="extends.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="java">
+<h1>Java 异常处理<a class="headerlink" href="#java" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>什么是异常<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>异常是在程序执行期间（即在运行时）发生的意外或意外事件，它会中断程序指令的正常流程。</p>
+</section>
+<section id="id2">
+<h2>Java 异常类的层次结构<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>所有异常和错误类型都是Throwable类的子类，它是层次结构的基类。
+它有两个重要的子类Exception和Error，Exception此类用于用户程序应捕获的异常情况。
+JVM运行时使用Error来指示与运行时环境本身 (JRE) 相关的错误。</p>
+<img alt="Throwable类的层次结构" src="../_images/throwable.png" />
+</section>
+<section id="id3">
+<h2>异常的类型<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>主要有两种类型的异常：已检查和未检查。</p>
+<p>在这里，错误被视为未经检查的异常。根据 Oracle 的说法，存在三种类型的异常：</p>
+<ul class="simple">
+<li><p>检查异常</p></li>
+<li><p>未经检查的异常</p></li>
+<li><p>错误</p></li>
+</ul>
+<dl class="simple">
+<dt>检查和未检查异常之间的区别</dt><dd><ol class="arabic simple">
+<li><p>检查异常
+除了 RuntimeException 和 Error 之外，直接继承 Throwable 类的类称为受检异常，例如 IOException、SQLException 等。受检异常是在编译时检查的。</p></li>
+<li><p>未经检查的异常
+继承 RuntimeException 的类被称为未检查异常，例如 ArithmeticException、NullPointerException、ArrayIndexOutOfBoundsException 等。未检查异常在编译时不检查，但在运行时检查。</p></li>
+<li><p>错误
+错误是不可恢复的，例如 OutOfMemoryError、VirtualMachineError、AssertionError 等。</p></li>
+</ol>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Java异常处理<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>Java异常处理是通过5个关键字来管理的，它们是try、catch、throw、throws和finally。</p>
+<p>如果try代码块中有异常发生可以使用catch捕获并进行处理。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TryCatchExample2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="mi">50</span><span class="o">/</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//may throw exception</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span><span class="c1">//handling the exception</span><span class="w"></span>
+<span class="w">        </span><span class="k">catch</span><span class="p">(</span><span class="n">ArithmeticException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;rest of the code&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>异常处理的核心是try和catch。这两个关键字要一起使用，只有try而没有catch，或者只有catch而没有try都不对。
+一个try相关的catch语句可以有多个，catch表达式按照代码顺序被检查。只执行匹配的catch代码块。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MultipleCatchBlock1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">a</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ArithmeticException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Arithmetic Exception occurs&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ArrayIndexOutOfBoundsException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ArrayIndexOutOfBounds Exception occurs&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Parent Exception occurs&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;rest of the code&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>如果try代码块没有抛出异常正常结束，会跳过它的所有catch语句。所以只有在有异常被抛出时，才会执行catch语句。
+异常的类型必须与catch语句中指定的类型相符，否则异常就不能被捕获。</p>
+<p>Java throw 关键字用于显式抛出异常。
+我们可以通过 throw 关键字在 java 中抛出已检查或未检查的异常。throw 关键字主要用于抛出自定义异常。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestThrow1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArithmeticException</span><span class="p">(</span><span class="s">&quot;not valid&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;welcome to vote&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">validate</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;rest of the code...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>无论异常是否被处理，Java finally 块都会被执行。Java finally 块跟在 try 或 catch 块之后。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">TestFinallyBlock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NullPointerException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;finally block is always executed&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;rest of the code...&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>如果程序不捕获异常那它就要被JVM捕获，程序会终止执行并显示堆栈跟踪和出错消息。</p>
+<dl class="simple">
+<dt>要点：</dt><dd><ol class="arabic simple">
+<li><p>在一个方法中，可能有多个可能抛出异常的语句，因此将所有这些语句放在自己的try块中，并在自己的catch块中为每个语句提供单独的异常处理程序。</p></li>
+<li><p>如果try块内发生异常，则该异常由与其关联的异常处理程序处理。要关联异常处理程序，我们必须在它之后放置catch块。可以有多个异常处理程序。每个catch块都是一个异常处理程序，用于处理由其参数指示的类型的异常。参数 ExceptionType 声明了它可以处理的异常类型，并且必须是继承自Throwable类的类的名称。</p></li>
+<li><p>对于每个 try 块，可以有零个或多个 catch 块，但只有一个finally 块。</p></li>
+<li><p>finally 块是可选的。无论 try 块中是否发生异常，它都会被执行。如果发生异常，则在try 和 catch 块之后执行。 如果异常没有发生，那么它将在try块之后执行。java中的finally块用于放置重要的代码，例如清理代码，例如关闭文件或关闭连接。</p></li>
+</ol>
+</dd>
+</dl>
+<p class="rubric">参考与引用</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Exceptions in Java <a class="reference external" href="https://www.geeksforgeeks.org/exceptions-in-java/">https://www.geeksforgeeks.org/exceptions-in-java/</a></p>
+</aside>
+<aside class="footnote brackets" id="f2" role="note">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Exception Handling in Java <a class="reference external" href="https://www.javatpoint.com/exception-handling-in-java">https://www.javatpoint.com/exception-handling-in-java</a></p>
+</aside>
+<aside class="footnote brackets" id="f3" role="note">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>Exceptions <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html">https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html</a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">我的足迹</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Java 异常处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">KAFKA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCKER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="extends.html" title="上一章">类的继承</a></li>
+      <li>Next: <a href="io.html" title="下一章">Java的I/O</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="提交" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, 银河系统旅行者.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/java/exception.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
