@@ -1,6 +1,3 @@
-AQ记事本
-----------------
-
 .. toctree::
    :hidden:
    :titlesonly:
