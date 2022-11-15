@@ -12,9 +12,9 @@ jobs:
      with:
        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
    - name: Build and Commit
-     run:  pip install sphinx-rtd-theme
      uses: sphinx-notes/pages@v2
      with:
+        requirements_path: requirements.txt
         documentation_path: source
    - name: Push changes
      uses: ad-m/github-push-action@master
