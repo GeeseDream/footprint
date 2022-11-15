@@ -1,83 +1,46 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
-    <title>类的继承 &#8212; 我的足迹 0.0.1 文档</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/translations.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>类的继承 &mdash; 我的足迹 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Java 异常处理" href="exception.html" />
-    <link rel="prev" title="非访问修饰符" href="NOAccessControl.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="非访问修饰符" href="NOAccessControl.html" /> 
+</head>
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <section id="id1">
-<h1>类的继承<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
-<p>继承是面向对象程序设计的三个基本原则之一</p>
-<p>体现了类与类之间的“is-a”关系。</p>
-<section id="id2">
-<h2>继承<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
-<p>被继承的类被称为超类或父类，继承类被称为子类。子类继承了超类定义的所有变量和方法，并且子类可以定义自己的方法和变量。
-子类依然可以有子类，但是子类只能有一个直接的超类。在子类当中不能访问父类声明为私有的方法和变量，类不能自己继承自己。</p>
-<p>子类构造函数的第一条语句必须是super()，如果要调用父类有参数的构造函数需要为super()指定参数。
-在多层次的继承中，构造函数按继承的顺序列执行。不写super()的时候默认执行每个超类无形参构造函数。</p>
-<p>super也用于子类中调用父类的变量和方法，子类变量或方法与父类重名的情况必须使用super。</p>
-<p>子类对象的引用赋给超类引用变量时，因为超类不知道子类的实现，所以只能访问超类定义的部分。</p>
-</section>
-<section id="id3">
-<h2>方法重写<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
-<p>当子类中的方法与其超类中的方法具有相同的返回类型和签名时，就称子类中的方法重写（override）了超类中的方法。
-当在子类中调用被重写的方法时，总是引用子类中定义的方法，而超类中定义的方法将被隐藏。要访问超类的被重写方法可以使用super。</p>
-<p>方法重写只在两个方法的签名一致时才发生，被声明为final的方法不能被重写。</p>
-<p>超类引用调用被重写的方法时，Java会根据在调用发生时引用的对象的类型来判断所要执行的方法。
-当引用不同类型的对象时，将调用被重写方法的不同版本。
-被引用对象的类型决定了所要执行的被重写方法。</p>
-</section>
-</section>
-
-
-          </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">我的足迹</a></h1>
-
-
-
-
-
-
-
-
-<h3>导航</h3>
-<p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 我的足迹
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
@@ -96,51 +59,83 @@
 <li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="NOAccessControl.html" title="上一章">非访问修饰符</a></li>
-      <li>Next: <a href="exception.html" title="下一章">Java 异常处理</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">快速搜索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="提交" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2022, 银河系统旅行者.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/java/extends.rst.txt"
-          rel="nofollow">Page source</a>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">我的足迹</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">类的继承</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/java/extends.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>类的继承<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>继承是面向对象程序设计的三个基本原则之一</p>
+<p>体现了类与类之间的“is-a”关系。</p>
+<section id="id2">
+<h2>继承<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<p>被继承的类被称为超类或父类，继承类被称为子类。子类继承了超类定义的所有变量和方法，并且子类可以定义自己的方法和变量。
+子类依然可以有子类，但是子类只能有一个直接的超类。在子类当中不能访问父类声明为私有的方法和变量，类不能自己继承自己。</p>
+<p>子类构造函数的第一条语句必须是super()，如果要调用父类有参数的构造函数需要为super()指定参数。
+在多层次的继承中，构造函数按继承的顺序列执行。不写super()的时候默认执行每个超类无形参构造函数。</p>
+<p>super也用于子类中调用父类的变量和方法，子类变量或方法与父类重名的情况必须使用super。</p>
+<p>子类对象的引用赋给超类引用变量时，因为超类不知道子类的实现，所以只能访问超类定义的部分。</p>
+</section>
+<section id="id3">
+<h2>方法重写<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
+<p>当子类中的方法与其超类中的方法具有相同的返回类型和签名时，就称子类中的方法重写（override）了超类中的方法。
+当在子类中调用被重写的方法时，总是引用子类中定义的方法，而超类中定义的方法将被隐藏。要访问超类的被重写方法可以使用super。</p>
+<p>方法重写只在两个方法的签名一致时才发生，被声明为final的方法不能被重写。</p>
+<p>超类引用调用被重写的方法时，Java会根据在调用发生时引用的对象的类型来判断所要执行的方法。
+当引用不同类型的对象时，将调用被重写方法的不同版本。
+被引用对象的类型决定了所要执行的被重写方法。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="NOAccessControl.html" class="btn btn-neutral float-left" title="非访问修饰符" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="exception.html" class="btn btn-neutral float-right" title="Java 异常处理" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
-    
+  <hr/>
 
-    
-  </body>
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, 银河系统旅行者.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

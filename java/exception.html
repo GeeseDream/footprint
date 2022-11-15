@@ -1,56 +1,103 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
-    <title>Java 异常处理 &#8212; 我的足迹 0.0.1 文档</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/translations.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java 异常处理 &mdash; 我的足迹 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Java的I/O" href="io.html" />
-    <link rel="prev" title="类的继承" href="extends.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="类的继承" href="extends.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> 我的足迹
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Java 异常处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">KAFKA</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DOCKER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">我的足迹</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Java 异常处理</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/java/exception.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="java">
-<h1>Java 异常处理<a class="headerlink" href="#java" title="此标题的永久链接">¶</a></h1>
+<h1>Java 异常处理<a class="headerlink" href="#java" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>什么是异常<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<h2>什么是异常<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>异常是在程序执行期间（即在运行时）发生的意外或意外事件，它会中断程序指令的正常流程。</p>
 </section>
 <section id="id2">
-<h2>Java 异常类的层次结构<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<h2>Java 异常类的层次结构<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>所有异常和错误类型都是Throwable类的子类，它是层次结构的基类。
 它有两个重要的子类Exception和Error，Exception此类用于用户程序应捕获的异常情况。
 JVM运行时使用Error来指示与运行时环境本身 (JRE) 相关的错误。</p>
 <img alt="Throwable类的层次结构" src="../_images/throwable.png" />
 </section>
 <section id="id3">
-<h2>异常的类型<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<h2>异常的类型<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>主要有两种类型的异常：已检查和未检查。</p>
 <p>在这里，错误被视为未经检查的异常。根据 Oracle 的说法，存在三种类型的异常：</p>
 <ul class="simple">
@@ -71,7 +118,7 @@ JVM运行时使用Error来指示与运行时环境本身 (JRE) 相关的错误�
 </dl>
 </section>
 <section id="id4">
-<h2>Java异常处理<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<h2>Java异常处理<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <p>Java异常处理是通过5个关键字来管理的，它们是try、catch、throw、throws和finally。</p>
 <p>如果try代码块中有异常发生可以使用catch捕获并进行处理。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TryCatchExample2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -157,104 +204,49 @@ JVM运行时使用Error来指示与运行时环境本身 (JRE) 相关的错误�
 </dd>
 </dl>
 <p class="rubric">参考与引用</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="f1" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>Exceptions in Java <a class="reference external" href="https://www.geeksforgeeks.org/exceptions-in-java/">https://www.geeksforgeeks.org/exceptions-in-java/</a></p>
-</aside>
-<aside class="footnote brackets" id="f2" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<p>Exception Handling in Java <a class="reference external" href="https://www.javatpoint.com/exception-handling-in-java">https://www.javatpoint.com/exception-handling-in-java</a></p>
-</aside>
-<aside class="footnote brackets" id="f3" role="note">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<p>Exceptions <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html">https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html</a></p>
-</aside>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span></dt>
+<dd><p>Exceptions in Java <a class="reference external" href="https://www.geeksforgeeks.org/exceptions-in-java/">https://www.geeksforgeeks.org/exceptions-in-java/</a></p>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span></dt>
+<dd><p>Exception Handling in Java <a class="reference external" href="https://www.javatpoint.com/exception-handling-in-java">https://www.javatpoint.com/exception-handling-in-java</a></p>
+</dd>
+<dt class="label" id="f3"><span class="brackets">3</span></dt>
+<dd><p>Exceptions <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html">https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html</a></p>
+</dd>
+</dl>
 </section>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="extends.html" class="btn btn-neutral float-left" title="类的继承" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="io.html" class="btn btn-neutral float-right" title="Java的I/O" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, 银河系统旅行者.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">我的足迹</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>导航</h3>
-<p class="caption" role="heading"><span class="caption-text">JAVA BASE</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Java 异常处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
-<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">KAFKA</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">DOCKER</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="extends.html" title="上一章">类的继承</a></li>
-      <li>Next: <a href="io.html" title="下一章">Java的I/O</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">快速搜索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="提交" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2022, 银河系统旅行者.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/java/exception.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
