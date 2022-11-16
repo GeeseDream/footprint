@@ -4,7 +4,7 @@
 .. toctree::
    :hidden:
    :titlesonly:
-   :caption: JAVA BASE
+   :caption: Java基础
    
    java/datatype
    java/AccessControl
@@ -17,15 +17,21 @@
 .. toctree::
    :hidden:
    :titlesonly:
-   :caption: KAFKA
+   :caption: Kafka
 
    kafka/isr
 
 .. toctree::
    :hidden:
    :titlesonly:
-   :caption: DOCKER
+   :caption: Docker使用
 
    docker/SettingProxy
 
+.. toctree::
+   :hidden:
+   :titlesonly:
+   :caption: Git使用
+
+   git
 
