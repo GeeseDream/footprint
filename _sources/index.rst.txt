@@ -31,7 +31,8 @@
 .. toctree::
    :hidden:
    :titlesonly:
-   :caption: Git使用
+   :caption: 常用命令
 
    git
+   maven
 
