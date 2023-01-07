@@ -15,3 +15,14 @@ Maven 命令备忘
         <properties>
             <maven.deploy.skip>true</maven.deploy.skip>
         </properties>
+
+3. 指定JDK版本和UTF-8编码
+
+    .. code-block:: xml
+
+        <properties>
+            <maven.compiler.target>1.8</maven.compiler.target>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        </properties>
