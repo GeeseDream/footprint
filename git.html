@@ -90,12 +90,21 @@
              
   <section id="git">
 <h1>Git 使用<a class="headerlink" href="#git" title="此标题的永久链接"></a></h1>
-<p>只获取仓库指定分支的方法</p>
+<section id="id1">
+<h2>1. 只获取仓库指定分支的方法<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>分支名称<span class="w"> </span>仓库_url
 git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>tags<span class="w"> </span>仓库_url
 git<span class="w"> </span>clone<span class="w"> </span>--single--branch<span class="w"> </span>分支名称<span class="w"> </span>仓库_url
 </pre></div>
 </div>
+</section>
+<section id="id2">
+<h2>2. 制作Git仓库镜像<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--bare<span class="w"> </span>git@git.demo.com:xxxx/my.git
+git<span class="w"> </span>push<span class="w"> </span>--mirror<span class="w"> </span>git@git.demo.com:xxxx/new-my.git
+</pre></div>
+</div>
+</section>
 </section>
 
 
