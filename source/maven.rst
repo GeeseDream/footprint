@@ -26,3 +26,9 @@ Maven 命令备忘
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         </properties>
+
+4. 打包不编译单元测试类
+
+    .. code-block:: shell
+
+        mvn clean package "-Dmaven.test.skip=true" -U
