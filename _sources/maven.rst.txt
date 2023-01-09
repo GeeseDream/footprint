@@ -1,14 +1,16 @@
 ================================
-Maven 命令备忘
+Maven 备忘
 ================================
 
 1. 批量修改多模块项目版本号
+--------------------------------
 
     .. code-block:: shell
 
-        mvn versions:set "-DnewVersion=1.1.2"
+        mvn versions:set -DnewVersion=1.1.2
 
 2. 禁止将某个项目模块发布到仓库
+--------------------------------
 
     .. code-block:: xml
 
@@ -17,6 +19,7 @@ Maven 命令备忘
         </properties>
 
 3. 指定JDK版本和UTF-8编码
+--------------------------------
 
     .. code-block:: xml
 
@@ -28,7 +31,49 @@ Maven 命令备忘
         </properties>
 
 4. 打包不编译单元测试类
+--------------------------------
 
     .. code-block:: shell
 
         mvn clean package -Dmaven.test.skip=true -U
+
+5. 使用maven-dependency-plugin排除依赖的部分class文件
+------------------------------------------------------
+
+    .. code-block:: xml
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.4.0</version>
+            <executions>
+                <execution>
+                    <id>unpack</id>
+                    <phase>process-classes</phase>
+                    <goals>
+                        <goal>unpack</goal>
+                    </goals>
+                    <configuration>
+                        <artifactItems>
+                            <artifactItem>
+                                <groupId>com.demo.rpc</groupId>
+                                <artifactId>demo-core</artifactId>
+                                <version>1.5.1</version>
+                                <type>jar</type>
+                                <includes>com/demo/core/base/*.class,com/demo/core/rpc/*.class,com/demo/core/utils/*.class,com/demo/core/*.class</includes>
+                                <excludes>META-INF/</excludes>
+                                <overWrite>true</overWrite>
+                                <outputDirectory>${build.directory}/classes/</outputDirectory>
+                            </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+6. 排查依赖冲突常用命令
+--------------------------------
+
+    .. code-block:: shell
+
+        mvn dependency:tree -Dincludes=org.apache.curator -Dverbose

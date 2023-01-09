@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maven 命令备忘 &mdash; 我的足迹 0.0.1 文档</title>
+  <title>Maven 备忘 &mdash; 我的足迹 0.0.1 文档</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -60,7 +60,7 @@
 <p class="caption" role="heading"><span class="caption-text">常用命令</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git 使用</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Maven 命令备忘</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Maven 备忘</a></li>
 </ul>
 
         </div>
@@ -77,7 +77,7 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Maven 命令备忘</li>
+      <li class="breadcrumb-item active">Maven 备忘</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/maven.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
@@ -88,16 +88,17 @@
            <div itemprop="articleBody">
              
   <section id="maven">
-<h1>Maven 命令备忘<a class="headerlink" href="#maven" title="此标题的永久链接"></a></h1>
-<ol class="arabic">
-<li><p>批量修改多模块项目版本号</p>
+<h1>Maven 备忘<a class="headerlink" href="#maven" title="此标题的永久链接"></a></h1>
+<section id="id1">
+<h2>1. 批量修改多模块项目版本号<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>versions:set<span class="w"> </span><span class="s2">&quot;-DnewVersion=1.1.2&quot;</span>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>versions:set<span class="w"> </span>-DnewVersion<span class="o">=</span><span class="m">1</span>.1.2
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p>禁止将某个项目模块发布到仓库</p>
+</section>
+<section id="id2">
+<h2>2. 禁止将某个项目模块发布到仓库<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;maven.deploy.skip&gt;</span>true<span class="nt">&lt;/maven.deploy.skip&gt;</span>
@@ -105,8 +106,9 @@
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p>指定JDK版本和UTF-8编码</p>
+</section>
+<section id="jdkutf-8">
+<h2>3. 指定JDK版本和UTF-8编码<a class="headerlink" href="#jdkutf-8" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;properties&gt;</span>
 <span class="w">    </span><span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
@@ -117,15 +119,58 @@
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p>打包不编译单元测试类</p>
+</section>
+<section id="id3">
+<h2>4. 打包不编译单元测试类<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-U
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-</ol>
+</section>
+<section id="maven-dependency-pluginclass">
+<h2>5. 使用maven-dependency-plugin排除依赖的部分class文件<a class="headerlink" href="#maven-dependency-pluginclass" title="此标题的永久链接"></a></h2>
+<blockquote>
+<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>3.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;executions&gt;</span>
+<span class="w">        </span><span class="nt">&lt;execution&gt;</span>
+<span class="w">            </span><span class="nt">&lt;id&gt;</span>unpack<span class="nt">&lt;/id&gt;</span>
+<span class="w">            </span><span class="nt">&lt;phase&gt;</span>process-classes<span class="nt">&lt;/phase&gt;</span>
+<span class="w">            </span><span class="nt">&lt;goals&gt;</span>
+<span class="w">                </span><span class="nt">&lt;goal&gt;</span>unpack<span class="nt">&lt;/goal&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/goals&gt;</span>
+<span class="w">            </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">                </span><span class="nt">&lt;artifactItems&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;artifactItem&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;groupId&gt;</span>com.demo.rpc<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;artifactId&gt;</span>demo-core<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;version&gt;</span>1.5.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;type&gt;</span>jar<span class="nt">&lt;/type&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;includes&gt;</span>com/demo/core/base/*.class,com/demo/core/rpc/*.class,com/demo/core/utils/*.class,com/demo/core/*.class<span class="nt">&lt;/includes&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;excludes&gt;</span>META-INF/<span class="nt">&lt;/excludes&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;overWrite&gt;</span>true<span class="nt">&lt;/overWrite&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;outputDirectory&gt;</span>${build.directory}/classes/<span class="nt">&lt;/outputDirectory&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/artifactItem&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/artifactItems&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/execution&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id4">
+<h2>6. 排查依赖冲突常用命令<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>dependency:tree<span class="w"> </span>-Dincludes<span class="o">=</span>org.apache.curator<span class="w"> </span>-Dverbose
+</pre></div>
+</div>
+</div></blockquote>
+</section>
 </section>
 
 
