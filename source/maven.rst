@@ -31,4 +31,4 @@ Maven 命令备忘
 
     .. code-block:: shell
 
-        mvn clean package "-Dmaven.test.skip=true" -U
+        mvn clean package -Dmaven.test.skip=true -U
