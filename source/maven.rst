@@ -1,5 +1,5 @@
 ================================
-Maven 命令备忘
+Maven 备忘
 ================================
 
 1. 批量修改多模块项目版本号
@@ -7,7 +7,7 @@ Maven 命令备忘
 
     .. code-block:: shell
 
-        mvn versions:set "-DnewVersion=1.1.2"
+        mvn versions:set -DnewVersion=1.1.2
 
 2. 禁止将某个项目模块发布到仓库
 --------------------------------
@@ -70,3 +70,10 @@ Maven 命令备忘
                 </execution>
             </executions>
         </plugin>
+
+6. 排查依赖冲突常用命令
+--------------------------------
+
+    .. code-block:: shell
+
+        mvn dependency:tree -Dincludes=org.apache.curator -Dverbose
