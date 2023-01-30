@@ -104,6 +104,41 @@ git<span class="w"> </span>clone<span class="w"> </span>--single--branch<span cl
 git<span class="w"> </span>push<span class="w"> </span>--mirror<span class="w"> </span>git@git.demo.com:xxxx/new-my.git
 </pre></div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p>使用includeIf指令根据remote.origin.url自动切换username和email</p></li>
+</ol>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">; include if $GIT_DIR is /path/to/foo/.git</span>
+<span class="k">[includeIf &quot;gitdir:/path/to/foo/.git&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/path/to/foo.inc</span>
+
+<span class="c1">; include for all repositories inside /path/to/group</span>
+<span class="k">[includeIf &quot;gitdir:/path/to/group/&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/path/to/foo.inc</span>
+
+<span class="c1">; include for all repositories inside $HOME/to/group</span>
+<span class="k">[includeIf &quot;gitdir:~/to/group/&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/path/to/foo.inc</span>
+
+<span class="c1">; relative paths are always relative to the including</span>
+<span class="c1">; file (if the condition is true); their location is not</span>
+<span class="c1">; affected by the condition</span>
+<span class="k">[includeIf &quot;gitdir:/path/to/group/&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo.inc</span>
+
+<span class="c1">; include only if we are in a worktree where foo-branch is</span>
+<span class="c1">; currently checked out</span>
+<span class="k">[includeIf &quot;onbranch:foo-branch&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo.inc</span>
+
+<span class="c1">; include only if a remote with the given URL exists (note</span>
+<span class="c1">; that such a URL may be provided later in a file or in a</span>
+<span class="c1">; file read after this file is read, as seen in this example)</span>
+<span class="k">[includeIf &quot;hasconfig:remote.*.url:https://example.com/**&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo.inc</span>
+<span class="k">[remote &quot;origin&quot;]</span>
+<span class="w">        </span><span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://example.com/git</span>
+</pre></div>
+</div>
 </section>
 </section>
 
