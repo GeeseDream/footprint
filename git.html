@@ -144,6 +144,18 @@ git<span class="w"> </span>push<span class="w"> </span>--mirror<span class="w"> 
 </pre></div>
 </div>
 </section>
+<section id="gitsocks">
+<h2>Git配置socks代理<a class="headerlink" href="#gitsocks" title="此标题的永久链接"></a></h2>
+<p>Git 支持 socks5:// 和 socks4:// 协议.</p>
+<p>执行命令为Git配置SOCKS代理.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>socks5://proxy_server.com:port
+</pre></div>
+</div>
+<p>为指定的域名配置代理执行下面的命令</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.https://domain.com.proxy<span class="w"> </span>socks5://proxy_server.com:port
+</pre></div>
+</div>
+</section>
 </section>
 
 
