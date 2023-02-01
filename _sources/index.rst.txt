@@ -4,6 +4,13 @@
 .. toctree::
    :hidden:
    :titlesonly:
+   :caption: Golang
+   
+   goenv
+
+.. toctree::
+   :hidden:
+   :titlesonly:
    :caption: Java基础
    
    java/datatype
