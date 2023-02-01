@@ -53,3 +53,20 @@ Git 使用
             path = foo.inc
     [remote "origin"]
             url = https://example.com/git
+
+Git配置socks代理
+-----------------------
+
+Git 支持 socks5:// 和 socks4:// 协议.
+
+执行命令为Git配置SOCKS代理.
+
+.. code-block:: shell
+
+        $ git config --global http.proxy socks5://proxy_server.com:port
+
+为指定的域名配置代理执行下面的命令
+
+.. code-block:: shell
+
+        $ git config --global http.https://domain.com.proxy socks5://proxy_server.com:port
