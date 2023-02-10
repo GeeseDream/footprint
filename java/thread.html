@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="zh-CN" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Java 线程 &mdash; 我的足迹 0.0.1 文档</title>
@@ -11,10 +11,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
@@ -30,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> 我的足迹
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            我的足迹
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="搜索文档" />
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -66,6 +68,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../git.html">Git 使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../maven.html">Maven 备忘</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../store.html">几个类似ipfs的项目</a></li>
 </ul>
 
         </div>
@@ -81,7 +84,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Java 线程</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/java/thread.rst.txt" rel="nofollow"> 查看页面源码</a>
@@ -114,10 +117,6 @@
 <h2>线程状态<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>在给定的一个时刻，线程只能处于其中的一个状态。使用jstack工具可以查看运行时线程信息。</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 88%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>状态名称</p></th>
 <th class="head"><p>说 明</p></th>
@@ -198,10 +197,6 @@
 <h2>等待/通知机制<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
 <p>等待/通知的相关方法是任意Java对象都具备的，因为这些方法被定义在所有对象的超类java.lang.Object上</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>方法名称</p></th>
 <th class="head"><p>描述</p></th>
@@ -233,17 +228,20 @@
 <li><p>从wait()方法返回的前提是获得了调用对象的锁。</p></li>
 </ol>
 <p class="rubric">参考与引用</p>
-<dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets">1</span></dt>
-<dd><p>维基百科-线程 <a class="reference external" href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B">https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B</a></p>
-</dd>
-<dt class="label" id="f2"><span class="brackets">2</span></dt>
-<dd><p>Lifecycle and States of a Thread in Java <a class="reference external" href="https://www.geeksforgeeks.org/lifecycle-and-states-of-a-thread-in-java/?ref=lbp">https://www.geeksforgeeks.org/lifecycle-and-states-of-a-thread-in-java/?ref=lbp</a></p>
-</dd>
-<dt class="label" id="f3"><span class="brackets">3</span></dt>
-<dd><p>Java 并发编程艺术(方腾飞 著).第四章.Java 并发编程基础</p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>维基百科-线程 <a class="reference external" href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B">https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B</a></p>
+</aside>
+<aside class="footnote brackets" id="f2" role="note">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>Lifecycle and States of a Thread in Java <a class="reference external" href="https://www.geeksforgeeks.org/lifecycle-and-states-of-a-thread-in-java/?ref=lbp">https://www.geeksforgeeks.org/lifecycle-and-states-of-a-thread-in-java/?ref=lbp</a></p>
+</aside>
+<aside class="footnote brackets" id="f3" role="note">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>Java 并发编程艺术(方腾飞 著).第四章.Java 并发编程基础</p>
+</aside>
+</aside>
 </section>
 </section>
 

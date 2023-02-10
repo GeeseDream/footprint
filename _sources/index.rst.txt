@@ -42,4 +42,5 @@
 
    git
    maven
+   store
 
