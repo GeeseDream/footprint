@@ -31,6 +31,20 @@ release = '0.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    # Sphinx's own extensions
+    "sphinx.ext.autodoc",
+    "sphinx.ext.extlinks",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
+    # Our custom extension, only meant for Furo's own documentation.
+    "furo.sphinxext",
+    # External stuff
+    "myst_parser",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "sphinx_inline_tabs",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
