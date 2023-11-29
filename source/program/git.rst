@@ -1,26 +1,23 @@
-================================
-Git 使用
-================================
+Git
+========
 
-1. 只获取仓库指定分支的方法
---------------------------------
-
+1. 获取指定分支
+---------------------------------
 .. code-block:: shell
         
     git clone --branch 分支名称 仓库_url
     git clone -b tags 仓库_url
     git clone --single--branch 分支名称 仓库_url
 
-2. 制作Git仓库镜像
--------------------------------
-
+2. 制作仓库镜像
+--------------------------------------
 .. code-block:: shell
 
     git clone --bare git@git.demo.com:xxxx/my.git
     git push --mirror git@git.demo.com:xxxx/new-my.git
 
-3. 使用includeIf指令根据remote.origin.url自动切换username和email
-
+3. 使用includeIf指令
+------------------------------------------------------------------------
 .. code-block:: ini
 
     ; include if $GIT_DIR is /path/to/foo/.git
@@ -54,19 +51,19 @@ Git 使用
     [remote "origin"]
             url = https://example.com/git
 
-Git配置socks代理
------------------------
+4. 配置socks代理
+------------------------------------------------
 
 Git 支持 socks5:// 和 socks4:// 协议.
 
 执行命令为Git配置SOCKS代理.
 
 .. code-block:: shell
-
-        $ git config --global http.proxy socks5://proxy_server.com:port
+        
+        git config --global http.proxy socks5://proxy_server.com:port
 
 为指定的域名配置代理执行下面的命令
 
 .. code-block:: shell
-
-        $ git config --global http.https://domain.com.proxy socks5://proxy_server.com:port
+        
+        git config --global http.https://domain.com.proxy socks5://proxy_server.com:port

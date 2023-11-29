@@ -10,42 +10,7 @@
 我在工作中常用Java、MySQL、Docker、Python等，常居中国 北京。
 
 
-
 .. toctree::
    :hidden:
-   :caption: Golang
    
-   goenv
-
-.. toctree::
-   :hidden:
-   :caption: Java基础
-   
-   java/datatype
-   java/AccessControl
-   java/NOAccessControl
-   java/extends
-   java/exception
-   java/io
-   java/thread
-
-.. toctree::
-   :hidden:
-   :caption: Kafka
-
-   kafka/isr
-
-.. toctree::
-   :hidden:
-   :caption: Docker使用
-
-   docker/SettingProxy
-
-.. toctree::
-   :hidden:
-   :caption: 常用命令
-
-   git
-   maven
-   store
-
+   program/index
