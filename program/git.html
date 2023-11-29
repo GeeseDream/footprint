@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Java 访问修饰符" href="AccessControl.html" /><link rel="prev" title="Go语言" href="../goenv.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Maven" href="maven.html" /><link rel="prev" title="Docker" href="docker.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>Java 数据类型 - 足迹</title>
+        <title>Git - 足迹</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -157,33 +157,24 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Golang</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../goenv.html">Go语言</a></li>
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">编程</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of 编程</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="java/datatype.html">Java 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/extends.html">类的继承</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/exception.html">Java 异常处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/io.html">Java的I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/thread.html">Java 线程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Java基础</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Java 数据类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Java 异常处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
-<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="golang.html">Go语言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maven.html">Maven</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kafka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Docker使用</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">常用命令</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../git.html">Git 使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../maven.html">Maven 备忘</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../store.html">几个类似ipfs的项目</a></li>
+</li>
 </ul>
 
 </div>
@@ -218,72 +209,69 @@
           </label>
         </div>
         <article role="main">
-          <section id="java">
-<h1>Java 数据类型<a class="headerlink" href="#java" title="Link to this heading">#</a></h1>
+          <section id="git">
+<h1>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h1>
 <section id="id1">
-<h2>基本数据类型<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>两大数据类型</dt><dd><p>内置数据类型
-引用数据类型</p>
-</dd>
-</dl>
-<p>八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
-<ol class="arabic simple">
-<li><p>byte数据类型是8位、有符号的，以二进制补码表示的整数；最小值是
--128（-2^7）；最大值是 127（2^7-1）；默认值是 0；byte
-类型用在大型数组中节约空间，主要代替整数，因为 byte
-变量占用的空间只有 int 类型的四分之一；</p></li>
-<li><p>short数据类型是 16 位、有符号的以二进制补码表示的整数,最小值是
--32768（-2^15）；最大值是 32767（2^15 - 1）；Short 数据类型也可以像
-byte
-那样节省空间。一个short变量是int型变量所占空间的二分之一；默认值是
-0；</p></li>
-<li><p>int数据类型是32位、有符号的以二进制补码表示的整数；最小值是
--2,147,483,648（-2^31）；最大值是 2,147,483,647（2^31 -
-1）；一般地整型变量默认为 int 类型；默认值是 0 ；</p></li>
-<li><p>long数据类型是 64 位、有符号的以二进制补码表示的整数；最小值是
--9,223,372,036,854,775,808（-2^63）；最大值是
-9,223,372,036,854,775,807（2^63
--1）；这种类型主要使用在需要比较大整数的系统上；默认值是 0L；</p></li>
-<li><p>float数据类型是单精度、32位、符合IEEE 754标准的浮点数；float
-在储存大型浮点数组的时候可节省内存空间；默认值是
-0.0f；浮点数不能用来表示精确的值，如货币；</p></li>
-<li><p>double数据类型是双精度、64 位、符合 IEEE 754 标准的浮点数；
-浮点数的默认类型为 double 类型；
-double类型同样不能表示精确的值，如货币； 默认值是 0.0d；</p></li>
-<li><p>boolean数据类型表示一位的信息；只有两个取值：true 和
-false；这种类型只作为一种标志来记录 true/false 情况；默认值是 false；</p></li>
-<li><p>char类型是一个单一的 16 位 Unicode 字符；最小值是u0000（十进制等效值为 0）；最大值是 uffff（即为 65535）；char 数据类型可以储存任何字符；</p></li>
-</ol>
+<h2>1. 获取指定分支<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>分支名称<span class="w"> </span>仓库_url
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>tags<span class="w"> </span>仓库_url
+git<span class="w"> </span>clone<span class="w"> </span>--single--branch<span class="w"> </span>分支名称<span class="w"> </span>仓库_url
+</pre></div>
+</div>
 </section>
 <section id="id2">
-<h2>引用类型<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如Employee、Puppy等。变量一旦声明后，类型就不能被改变了。对象、数组都是引用数据类型。所有引用类型的默认值都是null。一个引用变量可以用来引用任何与之兼容的类型。</p>
+<h2>2. 制作仓库镜像<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--bare<span class="w"> </span>git@git.demo.com:xxxx/my.git
+git<span class="w"> </span>push<span class="w"> </span>--mirror<span class="w"> </span>git@git.demo.com:xxxx/new-my.git
+</pre></div>
+</div>
 </section>
-<section id="id3">
-<h2>数据类型转换<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>数据类型转换必须满足如下规则</p>
-<ol class="arabic simple">
-<li><p>不能对boolean类型进行类型转换。</p></li>
-<li><p>不能把对象类型转换成不相关类的对象。</p></li>
-<li><p>在把容量大的类型转换为容量小的类型时必须使用强制类型转换。</p></li>
-<li><p>转换过程中可能导致溢出或损失精度。</p></li>
-<li><p>浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入。</p></li>
-</ol>
+<section id="includeif">
+<h2>3. 使用includeIf指令<a class="headerlink" href="#includeif" title="Link to this heading">#</a></h2>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">; include if $GIT_DIR is /path/to/foo/.git</span>
+<span class="k">[includeIf &quot;gitdir:/path/to/foo/.git&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/path/to/foo.inc</span>
+
+<span class="c1">; include for all repositories inside /path/to/group</span>
+<span class="k">[includeIf &quot;gitdir:/path/to/group/&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/path/to/foo.inc</span>
+
+<span class="c1">; include for all repositories inside $HOME/to/group</span>
+<span class="k">[includeIf &quot;gitdir:~/to/group/&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/path/to/foo.inc</span>
+
+<span class="c1">; relative paths are always relative to the including</span>
+<span class="c1">; file (if the condition is true); their location is not</span>
+<span class="c1">; affected by the condition</span>
+<span class="k">[includeIf &quot;gitdir:/path/to/group/&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo.inc</span>
+
+<span class="c1">; include only if we are in a worktree where foo-branch is</span>
+<span class="c1">; currently checked out</span>
+<span class="k">[includeIf &quot;onbranch:foo-branch&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo.inc</span>
+
+<span class="c1">; include only if a remote with the given URL exists (note</span>
+<span class="c1">; that such a URL may be provided later in a file or in a</span>
+<span class="c1">; file read after this file is read, as seen in this example)</span>
+<span class="k">[includeIf &quot;hasconfig:remote.*.url:https://example.com/**&quot;]</span>
+<span class="w">        </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo.inc</span>
+<span class="k">[remote &quot;origin&quot;]</span>
+<span class="w">        </span><span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://example.com/git</span>
+</pre></div>
+</div>
 </section>
-<section id="id4">
-<h2>强制类型转换<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>条件是转换的数据类型必须是兼容的。</p></li>
-<li><p>格式：(type)value type是要强制类型转换后的数据类型。</p></li>
-</ol>
-</section>
-<section id="id5">
-<h2>隐含强制类型转换<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>整数的默认类型是 int。</p></li>
-<li><p>小数默认是 double 类型浮点型，在定义 float 类型时必须在数字后面跟上F或者f。</p></li>
-</ol>
+<section id="socks">
+<h2>4. 配置socks代理<a class="headerlink" href="#socks" title="Link to this heading">#</a></h2>
+<p>Git 支持 socks5:// 和 socks4:// 协议.</p>
+<p>执行命令为Git配置SOCKS代理.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>socks5://proxy_server.com:port
+</pre></div>
+</div>
+<p>为指定的域名配置代理执行下面的命令</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.https://domain.com.proxy<span class="w"> </span>socks5://proxy_server.com:port
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -292,23 +280,23 @@ false；这种类型只作为一种标志来记录 true/false 情况；默认值
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="AccessControl.html">
+          <a class="next-page" href="maven.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Java 访问修饰符</div>
+                <div class="title">Maven</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../goenv.html">
+          <a class="prev-page" href="docker.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Go语言</div>
+                <div class="title">Docker</div>
                 
               </div>
             </a>
@@ -342,12 +330,11 @@ false；这种类型只作为一种标志来记录 true/false 情况；默认值
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Java 数据类型</a><ul>
-<li><a class="reference internal" href="#id1">基本数据类型</a></li>
-<li><a class="reference internal" href="#id2">引用类型</a></li>
-<li><a class="reference internal" href="#id3">数据类型转换</a></li>
-<li><a class="reference internal" href="#id4">强制类型转换</a></li>
-<li><a class="reference internal" href="#id5">隐含强制类型转换</a></li>
+<li><a class="reference internal" href="#">Git</a><ul>
+<li><a class="reference internal" href="#id1">1. 获取指定分支</a></li>
+<li><a class="reference internal" href="#id2">2. 制作仓库镜像</a></li>
+<li><a class="reference internal" href="#includeif">3. 使用includeIf指令</a></li>
+<li><a class="reference internal" href="#socks">4. 配置socks代理</a></li>
 </ul>
 </li>
 </ul>

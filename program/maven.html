@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Java 线程" href="thread.html" /><link rel="prev" title="Java 异常处理" href="exception.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="prev" title="Git" href="git.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>Java的I/O - 足迹</title>
+        <title>Maven - 足迹</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -157,33 +157,24 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Golang</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../goenv.html">Go语言</a></li>
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">编程</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of 编程</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="java/datatype.html">Java 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/extends.html">类的继承</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/exception.html">Java 异常处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/io.html">Java的I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/thread.html">Java 线程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Java基础</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AccessControl.html">Java 访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Java 异常处理</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Java的I/O</a></li>
-<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="golang.html">Go语言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Maven</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kafka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Docker使用</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">常用命令</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../git.html">Git 使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../maven.html">Maven 备忘</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../store.html">几个类似ipfs的项目</a></li>
+</li>
 </ul>
 
 </div>
@@ -218,108 +209,77 @@
           </label>
         </div>
         <article role="main">
-          <section id="javai-o">
-<h1>Java的I/O<a class="headerlink" href="#javai-o" title="Link to this heading">#</a></h1>
-<p>I/O（英语：Input/Output），即输入/输出，通常指数据在存储器（内部和外部）或其他周边设备之间的输入和输出，是信息处理系统（例如计算机）与外部世界（可能是人类或另一信息处理系统）之间的通信。输入是系统接收的信号或数据，输出则是从其发送的信号或数据。</p>
-<p>Java 使用流的概念来处理I/O 操作。java.io包包含输入和输出操作所需的所有类。</p>
-<div class="line-block">
-<div class="line">Stream：数据序列。</div>
-<div class="line">输入流：从源读取数据。</div>
-<div class="line">输出流：将数据写入目的地。</div>
-</div>
+          <section id="maven">
+<h1>Maven<a class="headerlink" href="#maven" title="Link to this heading">#</a></h1>
 <section id="id1">
-<h2>输出流和输入流<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>Java 应用程序使用输出流将数据写入目的地，它可以是文件、数组、外围设备或套接字。
-Java 应用程序使用输入流从源读取数据，它可以是文件、数组、外围设备或套接字。</p>
-<p>让我们通过下图了解 Java OutputStream 和 InputStream 的工作原理。</p>
-<img alt="../_images/java-io-flow.png" src="../_images/java-io-flow.png" />
+<h2>1. 批量修改多模块项目版本号<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>versions:set<span class="w"> </span>-DnewVersion<span class="o">=</span><span class="m">1</span>.1.2
+</pre></div>
+</div>
 </section>
 <section id="id2">
-<h2>输出流类<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>OutputStream 类是一个抽象类。它是表示字节输出流的所有类的超类。输出流接受输出字节并将它们发送到某个接收器。</p>
-<p>OutputStream 的有用方法</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>方法</p></th>
-<th class="head"><p>描述</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>public void write(int) 抛出 IOException</p></td>
-<td><p>用于将一个字节写入当前输出流。</p></td>
-</tr>
-<tr class="row-odd"><td><p>public void write(byte[]) 抛出 IOException</p></td>
-<td><p>用于将字节数组写入当前输出流。</p></td>
-</tr>
-<tr class="row-even"><td><p>public void flush() 抛出 IOException</p></td>
-<td><p>刷新当前输出流。</p></td>
-</tr>
-<tr class="row-odd"><td><p>public void close() 抛出 IOException</p></td>
-<td><p>用于关闭当前输出流。</p></td>
-</tr>
-</tbody>
-</table>
+<h2>2. 禁止将某个项目模块发布到仓库<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;properties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;maven.deploy.skip&gt;</span>true<span class="nt">&lt;/maven.deploy.skip&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</pre></div>
 </div>
-<p>输出流层次结构</p>
-<img alt="../_images/java-outputstream.png" src="../_images/java-outputstream.png" />
+</section>
+<section id="jdkutf-8">
+<h2>3. 指定JDK版本和UTF-8编码<a class="headerlink" href="#jdkutf-8" title="Link to this heading">#</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;properties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+<span class="w">    </span><span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+<span class="w">    </span><span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+<span class="w">    </span><span class="nt">&lt;project.reporting.outputEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.reporting.outputEncoding&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</pre></div>
+</div>
 </section>
 <section id="id3">
-<h2>输入流类<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>InputStream 的有用方法</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>方法</p></th>
-<th class="head"><p>描述</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>public abstract int read() 抛出 IOException</p></td>
-<td><p>从输入流中读取下一个字节的数据。它在文件末尾返回 -1。</p></td>
-</tr>
-<tr class="row-odd"><td><p>public int available() 抛出 IOException</p></td>
-<td><p>返回可以从当前输入流中读取的字节数的估计值。</p></td>
-</tr>
-<tr class="row-even"><td><p>public void close() 抛出 IOException</p></td>
-<td><p>用于关闭当前输入流。</p></td>
-</tr>
-</tbody>
-</table>
+<h2>4. 打包不编译单元测试类<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-U
+</pre></div>
 </div>
-<p>输入流层次结构</p>
-<img alt="../_images/java-inputstream.png" src="../_images/java-inputstream.png" />
+</section>
+<section id="maven-dependency-pluginclass">
+<h2>5. 使用maven-dependency-plugin排除依赖的部分class文件<a class="headerlink" href="#maven-dependency-pluginclass" title="Link to this heading">#</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>3.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;executions&gt;</span>
+<span class="w">        </span><span class="nt">&lt;execution&gt;</span>
+<span class="w">            </span><span class="nt">&lt;id&gt;</span>unpack<span class="nt">&lt;/id&gt;</span>
+<span class="w">            </span><span class="nt">&lt;phase&gt;</span>process-classes<span class="nt">&lt;/phase&gt;</span>
+<span class="w">            </span><span class="nt">&lt;goals&gt;</span>
+<span class="w">                </span><span class="nt">&lt;goal&gt;</span>unpack<span class="nt">&lt;/goal&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/goals&gt;</span>
+<span class="w">            </span><span class="nt">&lt;configuration&gt;</span>
+<span class="w">                </span><span class="nt">&lt;artifactItems&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;artifactItem&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;groupId&gt;</span>com.demo.rpc<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;artifactId&gt;</span>demo-core<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;version&gt;</span>1.5.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;type&gt;</span>jar<span class="nt">&lt;/type&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;includes&gt;</span>com/demo/core/base/*.class,com/demo/core/rpc/*.class,com/demo/core/utils/*.class,com/demo/core/*.class<span class="nt">&lt;/includes&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;excludes&gt;</span>META-INF/<span class="nt">&lt;/excludes&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;overWrite&gt;</span>true<span class="nt">&lt;/overWrite&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;outputDirectory&gt;</span>${build.directory}/classes/<span class="nt">&lt;/outputDirectory&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/artifactItem&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/artifactItems&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/configuration&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/execution&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
 </section>
 <section id="id4">
-<h2>字符流<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<p>Java 平台使用 Unicode 约定存储字符值。字符流 I/O 自动将此内部格式转换为本地字符集或从本地字符集转换。
-对于大多数应用程序，字符流的 I/O 并不比字节流的 I/O 复杂。使用流类完成的输入和输出会自动与本地字符集相互转换。</p>
-<img alt="../_images/Input-Output-Stream.png" src="../_images/Input-Output-Stream.png" />
-<p>所有字符流类都来自 Reader和 Writer。与字节流一样，有专门用于文件 I/O 的字符流类： FileReader和 FileWriter.</p>
-</section>
-<section id="id5">
-<h2>字节流还是字符流<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
-<p>面向字节逐字节读取。字节流适用于处理二进制文件等原始数据。</p>
-<p>在 Java 中，字符使用 Unicode 约定进行存储。当我们要处理文本文件时，字符流很有用。这些文本文件可以逐个字符地处理。字符大小通常为 16 位。</p>
-<p class="rubric">参考与引用</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="f1" role="note">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>维基百科(输入/输出) <a class="reference external" href="https://zh.wikipedia.org/wiki/I/O">https://zh.wikipedia.org/wiki/I/O</a></p>
-</aside>
-<aside class="footnote brackets" id="f2" role="note">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<p>javatpoint(Java I/O 教程) <a class="reference external" href="https://www.javatpoint.com/java-io">https://www.javatpoint.com/java-io</a></p>
-</aside>
-<aside class="footnote brackets" id="f3" role="note">
-<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
-<p>Character Stream Vs Byte Stream in Java <a class="reference external" href="https://www.geeksforgeeks.org/character-stream-vs-byte-stream-java/">https://www.geeksforgeeks.org/character-stream-vs-byte-stream-java/</a></p>
-</aside>
-<aside class="footnote brackets" id="f4" role="note">
-<span class="label"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></span>
-<p>Character Streams <a class="reference external" href="https://docs.oracle.com/javase/tutorial/essential/io/charstreams.html">https://docs.oracle.com/javase/tutorial/essential/io/charstreams.html</a></p>
-</aside>
-</aside>
+<h2>7. 排查依赖冲突常用命令<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn<span class="w"> </span>dependency:tree<span class="w"> </span>-Dincludes<span class="o">=</span>org.apache.curator<span class="w"> </span>-Dverbose
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -328,23 +288,15 @@ Java 应用程序使用输入流从源读取数据，它可以是文件、数组
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="thread.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Java 线程</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="exception.html">
+          
+          <a class="prev-page" href="git.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Java 异常处理</div>
+                <div class="title">Git</div>
                 
               </div>
             </a>
@@ -378,12 +330,13 @@ Java 应用程序使用输入流从源读取数据，它可以是文件、数组
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Java的I/O</a><ul>
-<li><a class="reference internal" href="#id1">输出流和输入流</a></li>
-<li><a class="reference internal" href="#id2">输出流类</a></li>
-<li><a class="reference internal" href="#id3">输入流类</a></li>
-<li><a class="reference internal" href="#id4">字符流</a></li>
-<li><a class="reference internal" href="#id5">字节流还是字符流</a></li>
+<li><a class="reference internal" href="#">Maven</a><ul>
+<li><a class="reference internal" href="#id1">1. 批量修改多模块项目版本号</a></li>
+<li><a class="reference internal" href="#id2">2. 禁止将某个项目模块发布到仓库</a></li>
+<li><a class="reference internal" href="#jdkutf-8">3. 指定JDK版本和UTF-8编码</a></li>
+<li><a class="reference internal" href="#id3">4. 打包不编译单元测试类</a></li>
+<li><a class="reference internal" href="#maven-dependency-pluginclass">5. 使用maven-dependency-plugin排除依赖的部分class文件</a></li>
+<li><a class="reference internal" href="#id4">7. 排查依赖冲突常用命令</a></li>
 </ul>
 </li>
 </ul>

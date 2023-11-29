@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="非访问修饰符" href="NOAccessControl.html" /><link rel="prev" title="Java 数据类型" href="datatype.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="Docker" href="docker.html" /><link rel="prev" title="Java 线程" href="java/thread.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>Java 访问修饰符 - 足迹</title>
+        <title>Go语言 - 足迹</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -157,33 +157,24 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Golang</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../goenv.html">Go语言</a></li>
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">编程</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of 编程</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="java/datatype.html">Java 数据类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/AccessControl.html">Java 访问修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/NOAccessControl.html">非访问修饰符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/extends.html">类的继承</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/exception.html">Java 异常处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/io.html">Java的I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="java/thread.html">Java 线程</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Java基础</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="datatype.html">Java 数据类型</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Java 访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NOAccessControl.html">非访问修饰符</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extends.html">类的继承</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exception.html">Java 异常处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Java的I/O</a></li>
-<li class="toctree-l1"><a class="reference internal" href="thread.html">Java 线程</a></li>
+</li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Go语言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maven.html">Maven</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kafka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../kafka/isr.html">高可用机制</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Docker使用</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../docker/SettingProxy.html">为Docker设置socks5代理</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">常用命令</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../git.html">Git 使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../maven.html">Maven 备忘</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../store.html">几个类似ipfs的项目</a></li>
+</li>
 </ul>
 
 </div>
@@ -218,29 +209,17 @@
           </label>
         </div>
         <article role="main">
-          <section id="java">
-<h1>Java 访问修饰符<a class="headerlink" href="#java" title="Link to this heading">#</a></h1>
-<p>访问修饰符用来控制对类、变量、方法和构造方法的访问。Java 有4种访问控制符。</p>
-<section id="default">
-<h2>default<a class="headerlink" href="#default" title="Link to this heading">#</a></h2>
-<p>什么也不写的情况，在同一包内可见。使用对象：类、接口、变量、方法。使用默认访问修饰符声明的变量和方法，对同一个包内的类是可见的。
-例外的是，接口里的变量默认声明为public static final,接口里的方法默认访问修饰符为public。</p>
-</section>
-<section id="private">
-<h2>private<a class="headerlink" href="#private" title="Link to this heading">#</a></h2>
-<p>被声明为private的方法、变量和构造方法只能被所属类访问，并且类和接口不能声明为private。
-声明为私有访问类型的变量只能通过类当中公共的getter方法被外部类访问。
-private访问修饰符的使用主要用来隐藏类的实现细节和保护类的数据。</p>
-</section>
-<section id="public">
-<h2>public<a class="headerlink" href="#public" title="Link to this heading">#</a></h2>
-<p>被声明为public的类、方法、构造方法和接口能够被任何其他类访问。
-如果几个相互访问的public 类分布在不同的包中，则需要导入相应 public类所在的包。
-由于类的继承性类所有的公有方法和变量都能被其子类继承。</p>
-</section>
-<section id="protected">
-<h2>protected<a class="headerlink" href="#protected" title="Link to this heading">#</a></h2>
-<p>分两种情况，子类与基类在同一包中：被声明为 protected的变量、方法和构造器能被同一个包中的任何其他类访问；子类与基类不在同一包中：那么在子类中，子类实例可以访问其从基类继承而来的protected 方法，而不能访问基类实例的protected方法。protected可以修饰数据成员，构造方法，方法成员，不能修饰类（内部类除外）。并且接口及接口的成员变量和成员方法不能声明为protected。</p>
+          <section id="go">
+<h1>Go语言<a class="headerlink" href="#go" title="Link to this heading">#</a></h1>
+<section id="goproxy">
+<h2>GoProxy配置<a class="headerlink" href="#goproxy" title="Link to this heading">#</a></h2>
+<p>使用前请确认本地golang为1.11及以上版本，且工程为go module工程</p>
+<p>powershell当中使用下面的命令</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[System.Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GO111MODULE&#39;</span><span class="p">,</span><span class="s1">&#39;on&#39;</span><span class="p">,</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+<span class="no">[System.Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GOPROXY&#39;</span><span class="p">,</span><span class="s1">&#39;https://repo.huaweicloud.com/repository/goproxy/&#39;</span><span class="p">,</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+<span class="no">[System.Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GONOSUMDB&#39;</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -249,23 +228,23 @@ private访问修饰符的使用主要用来隐藏类的实现细节和保护类�
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="NOAccessControl.html">
+          <a class="next-page" href="docker.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">非访问修饰符</div>
+                <div class="title">Docker</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="datatype.html">
+          <a class="prev-page" href="java/thread.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Java 数据类型</div>
+                <div class="title">Java 线程</div>
                 
               </div>
             </a>
@@ -299,11 +278,8 @@ private访问修饰符的使用主要用来隐藏类的实现细节和保护类�
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Java 访问修饰符</a><ul>
-<li><a class="reference internal" href="#default">default</a></li>
-<li><a class="reference internal" href="#private">private</a></li>
-<li><a class="reference internal" href="#public">public</a></li>
-<li><a class="reference internal" href="#protected">protected</a></li>
+<li><a class="reference internal" href="#">Go语言</a><ul>
+<li><a class="reference internal" href="#goproxy">GoProxy配置</a></li>
 </ul>
 </li>
 </ul>
