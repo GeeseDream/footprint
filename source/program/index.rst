@@ -5,7 +5,8 @@
 
 .. toctree:: 
     :hidden:
-
+    
+    clang/index
     java/index
     golang
     docker
