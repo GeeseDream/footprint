@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -204,7 +204,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -212,26 +212,39 @@
         <article role="main">
           <section id="docker">
 <h1>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h1>
-<section id="id1">
-<h2>1. 创建文件<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch<span class="w"> </span>/etc/systemd/system/docker.service.d/http-proxy.conf
-</pre></div>
-</div>
-</section>
-<section id="id2">
-<h2>2. 文件内容<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Service<span class="o">]</span>
-<span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;HTTPS_PROXY=socks5://192.168.1.2:7891/&quot;</span>
-</pre></div>
-</div>
-</section>
-<section id="id3">
-<h2>3. 重启docker服务<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>daemon-reload
+<ol class="arabic simple">
+<li><p>docker配置代理服务器</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/http-proxy.conf</span>
+<span class="s">[Service]</span>
+<span class="s">Environment=&quot;HTTPS_PROXY=socks5://127.0.0.1:1080/&quot;</span>
+<span class="s">EOF</span>
+
+systemctl<span class="w"> </span>daemon-reload
 systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </pre></div>
 </div>
-</section>
+<ol class="arabic simple" start="2">
+<li><p>Dockerfile替换debian软件源</p></li>
+</ol>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">mcr.microsoft.com/devcontainers/cpp:debian-12</span>
+
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Acquire::http::Pipeline-Depth \&quot;0\&quot;;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/apt.conf.d/99nopipelining
+
+<span class="k">RUN</span><span class="w"> </span>cat<span class="w"> </span>&lt;&lt;EOF<span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list
+deb<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian/<span class="w"> </span>bookworm<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb-src<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian/<span class="w"> </span>bookworm<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian/<span class="w"> </span>bookworm-updates<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb-src<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian/<span class="w"> </span>bookworm-updates<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian/<span class="w"> </span>bookworm-backports<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb-src<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian/<span class="w"> </span>bookworm-backports<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian-security<span class="w"> </span>bookworm-security<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+deb-src<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/debian-security<span class="w"> </span>bookworm-security<span class="w"> </span>main<span class="w"> </span>contrib<span class="w"> </span>non-free<span class="w"> </span>non-free-firmware
+EOF
+
+<span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>vim
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -277,29 +290,8 @@ systemctl<span class="w"> </span>restart<span class="w"> </span>docker
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Docker</a><ul>
-<li><a class="reference internal" href="#id1">1. 创建文件</a></li>
-<li><a class="reference internal" href="#id2">2. 文件内容</a></li>
-<li><a class="reference internal" href="#id3">3. 重启docker服务</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
